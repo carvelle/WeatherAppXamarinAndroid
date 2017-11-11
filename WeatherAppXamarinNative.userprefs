@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{6652351F-1227-49A9-912D-A83BF3A2B2D1}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherAppXamarinNative/MainActivity.cs">
+    <Files>
+      <File FileName="WeatherAppXamarinNative/MainActivity.cs" Line="158" Column="49" />
+      <File FileName="WeatherAppXamarinNative/Extensions/TaskExtensions.cs" Line="1" Column="1" />
+      <File FileName="WeatherAppXamarinNative/Utilities/GetCountryFromCode.cs" Line="1" Column="1" />
+      <File FileName="WeatherAppXamarinNative/Utilities/GetIconImage.cs" Line="14" Column="12" />
+      <File FileName="WeatherAppXamarinNative/Utilities/PixelUtils.cs" Line="1" Column="1" />
+      <File FileName="WeatherAppXamarinNative/Widgets/TypefaceTextView.cs" Line="49" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.WeatherAppXamarinNative AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.ce06171690c8dd1901" AndroidDesignerPreferredTheme="AppTheme" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Weather App</string>
+    <string name="APPID">5877446c2b90e8420d9a4142121dc0a8</string>
+    <string name="service_url">http://api.openweathermap.org/data/2.5/weather?units=metric</string>
+    <string name="extended_forecast_url">https://api.openweathermap.org/data/2.5/forecast?units=metric</string>
+    <string name="max_string">Max</string>
+    <string name="min_string">Min</string>
+    <string name="lastupdated_string">updated</string>
+</resources>
