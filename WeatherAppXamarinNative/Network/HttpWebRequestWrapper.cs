@@ -2,9 +2,10 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using WeatherAppXamarinNative.Extensions;
 using WeatherAppXamarinNative.Interfaces;
 
-namespace WeatherAppXamarinNative
+namespace WeatherAppXamarinNative.Network
 {
 	public class HttpClientWrapper : IHttpClientDataProvider
 	{

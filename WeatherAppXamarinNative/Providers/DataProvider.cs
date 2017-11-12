@@ -1,11 +1,11 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using WeatherAppXamarinNative.Interfaces;
 using WeatherAppXamarinNative.Urls;
 using WeatherAppXamarinNative.Models;
 using WeatherAppXamarinNative.Extensions;
 using Android.Graphics;
+using WeatherAppXamarinNative.Network;
 
 namespace WeatherAppXamarinNative
 {

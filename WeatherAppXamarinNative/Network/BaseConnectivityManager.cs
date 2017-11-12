@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using WeatherAppXamarinNative.Interfaces;
 
-namespace WeatherAppXamarinNative
+namespace WeatherAppXamarinNative.Network
 {
 	public class BaseConnectivityManager
 	{

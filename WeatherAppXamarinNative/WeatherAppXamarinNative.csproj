@@ -172,6 +172,7 @@
     <Compile Include="Helpers\BackgroundImageChanger.cs" />
     <Compile Include="Widgets\TypefaceTextView.cs" />
     <Compile Include="Helpers\CronjobRunner.cs" />
+    <Compile Include="Helpers\CheckNetworkConnectivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -237,6 +238,7 @@
     <AndroidResource Include="Resources\drawable-nodpi\walle.jpg" />
     <AndroidResource Include="Resources\drawable\circular_progresssbar.xml" />
     <AndroidResource Include="Resources\layout\progressbar_layout.axml" />
+    <AndroidResource Include="Resources\layout\error_layout.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable-nodpi\" />

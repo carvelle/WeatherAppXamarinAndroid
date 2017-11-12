@@ -8,6 +8,11 @@ using WeatherAppXamarinNative.Models;
 using System.Collections.Generic;
 using Plugin.Geolocator.Abstractions;
 using Java.Lang;
+using WeatherAppXamarinNative.Extensions;
+using Android.Net;
+using WeatherAppXamarinNative.Helpers;
+using System.Net;
+using System;
 
 namespace WeatherAppXamarinNative
 {
@@ -19,16 +24,16 @@ namespace WeatherAppXamarinNative
 		ViewPager mViewPager;
 		SlideshowAdapter slideshowAdapter;
 		TextView dateLabel, mainTempLabel, areaLabel, maxTempLabel, minTempLabel, lastUpdated,
-		extMaxTempRow1, extMinTempRow1, dayRow1,
+		extMaxTempRow1, extMinTempRow1, dayRow1, errorMessage,
 		extMaxTempRow2, extMinTempRow2, dayRow2;
 		ImageView weatherIcon, iconImageRow1, iconImageRow2;
 		double? lat = -30.0000;
 		double? lng = 30.000;
 		DataProvider ServiceCall;
-		private LinearLayout spinner;
-		private LinearLayout content;
+		private LinearLayout spinner, content, errorDialog;
 		public Runnable currentWeatherRunnable;
 		public Runnable extendedWeatherRunnable;
+		ConnectivityManager connectivityManager;
 
 		protected async override void OnCreate(Bundle savedInstanceState)
 		{
@@ -51,15 +56,19 @@ namespace WeatherAppXamarinNative
 			extMinTempRow2 = FindViewById<TextView>(Resource.Id.ext_min_temp_row2);
 			dayRow2 = FindViewById<TextView>(Resource.Id.day_label_row2);
 			iconImageRow2 =  FindViewById<ImageView>(Resource.Id.ext_icon_image_row2);
+			errorMessage = FindViewById<TextView>(Resource.Id.error_message);
 			spinner = FindViewById<LinearLayout>(Resource.Id.progressBar);
 			content = FindViewById<LinearLayout>(Resource.Id.main_content);
+			errorDialog = FindViewById<LinearLayout>(Resource.Id.error_dialog);
 			content.Visibility = Android.Views.ViewStates.Visible;
+			errorDialog.Visibility = Android.Views.ViewStates.Gone;
 			slideshowAdapter = new SlideshowAdapter(this);
 			mViewPager.Adapter = slideshowAdapter;
 			maxLabel = this.Resources.GetString(Resource.String.max_string);
 			minLabel = this.Resources.GetString(Resource.String.min_string);
 			ServiceCall = new DataProvider();
 			Handler handler = new Handler();
+			connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 			manageBackgroundImages(handler);
 			await GetLocation();
 			await LoadWeatherData();
@@ -72,33 +81,63 @@ namespace WeatherAppXamarinNative
 
 		public async Task LoadWeatherData()
 		{
+			errorDialog.Visibility = Android.Views.ViewStates.Gone;
+			CheckNetworkConnectivity connectivity = new CheckNetworkConnectivity(connectivityManager);
 			await GetLocation();
-			if (lat != null && lng != null)
+			if (connectivity.IsPhoneOnline())
 			{
-				string url = Resources.GetString(Resource.String.service_url);
 				PointF latlng = new PointF((float)lat, (float)lng);
-
-				var weatherdata = await ServiceCall.GetCurrentWeather(latlng);
-				if (weatherdata != null)
+				try
 				{
-					setLabelValues(weatherdata);
+					var weatherdata = await ServiceCall.GetCurrentWeather(latlng);
+					if (weatherdata != null)
+					{
+						setLabelValues(weatherdata);
+					}
 				}
+				catch (WebException w)
+				{
+					HandleNetworkFailure();
+				}
+				catch (TimeoutException e)
+				{
+					HandleTimeout();
+				}
+			}else
+			{
+				var c = "this string";
 			}
 		}
 
 		public async Task LoadExtendedWeatherData()
 		{
+			CheckNetworkConnectivity connectivity = new CheckNetworkConnectivity(connectivityManager);
 			spinner.Visibility = Android.Views.ViewStates.Visible;
-			if (lat != null && lng != null)
+			if (connectivity.IsPhoneOnline())
 			{
-				string url = Resources.GetString(Resource.String.extended_forecast_url);
 				PointF latlng = new PointF((float)lat, (float)lng);
-				var extendedForecastData =await ServiceCall.GetFiveDayWeather(latlng);
-				if (extendedForecastData != null)
+				try
 				{
-					List<WeatherConditionModel> threeDayForecast = WeatherObjectHelper.GetNextTwoDaysWeather(extendedForecastData);
-                    setExtendForecastValues(threeDayForecast);
+					var extendedForecastData = await ServiceCall.GetFiveDayWeather(latlng);
+					if (extendedForecastData != null)
+					{
+						List<WeatherConditionModel> threeDayForecast = WeatherObjectHelper.GetNextTwoDaysWeather(extendedForecastData);
+						setExtendForecastValues(threeDayForecast);
+					}
 				}
+				catch (WebException w)
+				{
+					HandleNetworkFailure();
+				}
+				catch (TimeoutException e)
+				{
+					HandleTimeout();
+				}
+
+			}
+			else
+			{
+				var c = "this string";
 			}
 		}
 		private void setLabelValues(CurrentWeatherModel model)
@@ -159,6 +198,20 @@ namespace WeatherAppXamarinNative
 	
 			CronJobRunner ExtendedWeatherCronJobRunner = new CronJobRunner(handler);
 			ExtendedWeatherCronJobRunner.QueueJob(3600, extendedWeatherRunnable);
+		}
+
+		private void HandleTimeout()
+		{
+			spinner.Visibility = Android.Views.ViewStates.Gone;
+			errorDialog.Visibility = Android.Views.ViewStates.Visible;
+			errorMessage.Text = "Connection Timeout";
+		}
+
+		private void HandleNetworkFailure()
+		{
+			spinner.Visibility = Android.Views.ViewStates.Gone;
+			errorDialog.Visibility = Android.Views.ViewStates.Visible;
+			errorMessage.Text = "Could not resolve the domain name";
 		}
 	}
 

@@ -1,18 +1,31 @@
 ﻿<Properties StartupConfiguration="{6652351F-1227-49A9-912D-A83BF3A2B2D1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherAppXamarinNative/MainActivity.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="WeatherAppXamarinNative/Helpers/LocationHelper.cs">
     <Files>
-      <File FileName="WeatherAppXamarinNative/MainActivity.cs" Line="158" Column="49" />
-      <File FileName="WeatherAppXamarinNative/Extensions/TaskExtensions.cs" Line="1" Column="1" />
+      <File FileName="WeatherAppXamarinNative/MainActivity.cs" Line="188" Column="49" />
       <File FileName="WeatherAppXamarinNative/Utilities/GetCountryFromCode.cs" Line="1" Column="1" />
       <File FileName="WeatherAppXamarinNative/Utilities/GetIconImage.cs" Line="14" Column="12" />
       <File FileName="WeatherAppXamarinNative/Utilities/PixelUtils.cs" Line="1" Column="1" />
       <File FileName="WeatherAppXamarinNative/Widgets/TypefaceTextView.cs" Line="49" Column="5" />
+      <File FileName="WeatherAppXamarinNative/Network/HttpWebRequestWrapper.cs" Line="18" Column="1" />
+      <File FileName="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" Line="21" Column="40" />
+      <File FileName="WeatherAppXamarinNative/Helpers/LocationHelper.cs" Line="26" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.WeatherAppXamarinNative AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.ce06171690c8dd1901" AndroidDesignerPreferredTheme="AppTheme" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/MainActivity.cs" relfile="WeatherAppXamarinNative/MainActivity.cs" line="94" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/MainActivity.cs" relfile="WeatherAppXamarinNative/MainActivity.cs" line="107" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/MainActivity.cs" relfile="WeatherAppXamarinNative/MainActivity.cs" line="139" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/MainActivity.cs" relfile="WeatherAppXamarinNative/MainActivity.cs" line="91" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" relfile="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" line="51" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" relfile="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" line="35" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" relfile="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" line="34" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" relfile="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" line="30" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" relfile="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" line="29" column="1" />
+      <Breakpoint file="/Users/sibusiso/Projects/WeatherAppXamarinNative/WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" relfile="WeatherAppXamarinNative/Network/BaseConnectivityManager.cs" line="25" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

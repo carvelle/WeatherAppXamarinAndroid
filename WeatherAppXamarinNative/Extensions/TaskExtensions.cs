@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace WeatherAppXamarinNative
+namespace WeatherAppXamarinNative.Extensions
 {
 	public static class TaskExtensions
 	{
