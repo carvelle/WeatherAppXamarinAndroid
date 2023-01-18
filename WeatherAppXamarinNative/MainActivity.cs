@@ -47,6 +47,7 @@ namespace WeatherAppXamarinNative
 			lastUpdated = FindViewById<TextView>(Resource.Id.last_updated);
 			weatherIcon = FindViewById<ImageView>(Resource.Id.icon_image);
 			mViewPager = FindViewById<ViewPager>(Resource.Id.pager);
+
 			//Extended Weather
 			extMaxTempRow1 =FindViewById<TextView>(Resource.Id.ext_max_temp_row1);
 			extMinTempRow1 = FindViewById<TextView>(Resource.Id.ext_min_temp_row1);
@@ -68,6 +69,7 @@ namespace WeatherAppXamarinNative
 			minLabel = this.Resources.GetString(Resource.String.min_string);
 			ServiceCall = new DataProvider();
 			Handler handler = new Handler();
+
 			connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 			manageBackgroundImages(handler);
 			await GetLocation();
@@ -190,6 +192,7 @@ namespace WeatherAppXamarinNative
 			lat = position?.Latitude;
 			lng = position?.Longitude;
 		}
+		
 
 		public void QueueCronJobs(Handler handler)
 		{
